@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Time Restricted Webpage</title>
+
+<style>
+
+body {
+
+display: flex;
+
+justify-content: center;
+
+align-items: center;
+
+height: 100vh;
+
+background-color: #f0f0f0; }.content {
+
+text-align: center; }
+
+</style>
+
+<script>
+
+async function checkTime() {
+
+try {
+
+const response = await fetch('check_time.php');
+
+const result = await response.text();
+
+if (result == 'ACCESS_GRANTED') {
+
+document.querySelector('.content').innerHTML = 'Welcome to the webpage!';
+
+} else {
+
+document.querySelector('.content').innerHTML = 'The webpage is not accessible at this time.';
+
+}
+
+} catch (error) {
+
+console.error('Error checking the time:', error);
+
+}
+
+}
+
+window.addEventListener('load', checkTime);
+
+</script>
+
+</head>
+
+<body>
+
+<div class="content">Checking...</div>
+
+</body>
+
+</html>
