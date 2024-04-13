@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer Page</title>
+    <link rel="stylesheet" href="time.css">
+
+</head>
+<body>
+    <!-- Timer for the website -->
+    <div class="container">
+        <div class="content">
+            <p>The Election has not yet started please wait</p>
+            <h1>The <span>Election </span> will begin in</h1>
+            <div class="lauch-time">
+                <div>
+                    <p id="days">00</p>
+                    <span>Days</span>
+                </div>
+                <div>
+                    <p id="hours">00</p>
+                    <span>Hours</span>
+                </div>
+                <div>
+                    <p id="minutes">00</p>
+                    <span>Minutes</span>
+                </div>
+                <div>
+                    <p id="seconds">00</p>
+                    <span>Seconds</span>
+                </div>
+            </div>
+        </div>
+        <img src="Timer_images/rocket.png" alt="" class="rocket">
+        
+    </div>
+    <script>
+        var countDownDate = new Date("apr 08,2024 23:02:00").getTime();
+        var x = setInterval(function(){
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance/(1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (100 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById( "days" ).innerHTML = days ;
+            document.getElementById( "hours" ).innerHTML = hours;
+            document.getElementById( "minutes").innerHTML = minutes;
+            document.getElementById( "seconds").innerHTML = seconds; 
+        },1000)
+    </script>
+    
+</body>
+</html>
